@@ -10,9 +10,14 @@ stages {
             echo 'Building...'
         }
     }
-    stage('Test') {
+    stage('Install maven') {
         steps {
-            echo 'Testing...'
+            sh 'mvn install'
+        }
+    }
+    stage('Maven Test auto') {
+        steps {
+            sh 'mvn test'
         }
     }
 }
