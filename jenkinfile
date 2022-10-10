@@ -2,23 +2,18 @@
 
 pipeline {
 
-agent any
+    agent any
 
-stages {
-    stage('Build') {
-        steps {
-            echo 'Building...'
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+        stage('Maven Test auto') {
+            steps {
+                sh 'mvn test'
+            }
         }
     }
-    stage('Install maven') {
-        steps {
-            sh 'mvn install'
-        }
-    }
-    stage('Maven Test auto') {
-        steps {
-            sh 'mvn test'
-        }
-    }
-}
 }
